@@ -19,22 +19,22 @@
         return num;
     }
     
-    const revRomans = s.split("").reverse();
-    const len = revRomans.length;
+    const romansArr = s.split("");
+    const first = romansArr[0];
+    const second = romansArr[1];
+    const len = romansArr.length;
 
     // when length of s is 2
-    if (len === 2 && revRomans[0] !== "I" && romans[revRomans[1]]) {
-        if (romans[revRomans[1]] >= romans[revRomans[0]]) {
-            return romans[revRomans[1]] + romans[revRomans[0]];
+    if (len === 2) {
+        if (romans[first] >= romans[second]) {
+            return romans[first] + romans[second];
         } else {
-            return romans[revRomans[0]] - romans[revRomans[1]];
+            return romans[second] - romans[first];
         }
-    } else if (len === 2) {
-        return romans[revRomans[0]] + romans[revRomans[1]];
     }
     
     let result = 0;
-    const romansArr = s.split("");
+    
     // when length of s > 2
     romansArr.forEach((roman, index, arr) => {
         const next = romansArr[index + 1];
